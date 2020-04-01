@@ -274,7 +274,7 @@ pre code.sample-request-response-json {
   display: block;
   width: 192px;
   margin: 0;
-  padding: 2px 11px;
+  padding: 2px 35px;
   border: 0;
   border-left: transparent 4px solid;
   border-right: transparent 4px solid;
@@ -308,12 +308,10 @@ li.nav-header {
 li.nav-header > a {
   display: inline-block;
   padding: 5px 15px;
-  border: 1px solid #e5e5e5;
   width: 180px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 700;
   font-size: 16px;
-  background-color: #ffffff;
 }
 
 .sidenav > li.active > a {

@@ -375,7 +375,7 @@ require([
     var articleVersions = {};
     var content = '';
     apiGroups.forEach(function(groupEntry) {
-        var articles = [];
+
         var oldName = '';
         var fields = {};
         var title = groupEntry;
@@ -383,10 +383,10 @@ require([
         articleVersions[groupEntry] = {};
 
         apiSubGroups[groupEntry].forEach(function(subGroupEntry) {
-
+            var articles = [];
             // render all articles of a group
             api.forEach(function (entry) {
-                if (groupEntry === entry.group) {
+                if (groupEntry === entry.group && subGroupEntry === entry.subgroup) {
                     if (oldName !== entry.name) {
                         // determine versions
                         api.forEach(function (versionEntry) {
@@ -456,7 +456,7 @@ require([
     $('.sidenav').find('a').on('click', function(e) {
         // e.preventDefault();
         var id = $(this).attr('href');
-        if ($(id).length > 0)
+        if ($(id).length > 0 && $(this).hasClass('nav-list-item'))
             $('html,body').animate({ scrollTop: parseInt($(id).offset().top) }, 400);
         window.location.hash = $(this).attr('href');
     });
