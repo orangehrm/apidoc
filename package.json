@@ -10,7 +10,7 @@
   "homepage": "http://apidocjs.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/apidoc/apidoc.git"
+    "url": "https://github.com/orangehrm/apidoc.git"
   },
   "bugs": {
     "url": "https://github.com/apidoc/apidoc/issues"
@@ -33,7 +33,7 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "apidoc-core": "^0.11.1",
+    "apidoc-core": "git://github.com/orangehrm/apidoc-core.git#master",
     "commander": "^2.20.0",
     "fs-extra": "^8.1.0",
     "lodash": "^4.17.15",
