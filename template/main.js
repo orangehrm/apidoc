@@ -319,9 +319,11 @@ require([
     if (apiProject.header) {
         var found_level1 = add_nav(nav, apiProject.header.content, 0); // Add level 1 and 2 titles
         if (!found_level1) {    // If no Level 1 tags were found, make a title
+            nav[0]['notFirstMainMenu'] = true;
             nav.unshift({
                 group: '_',
                 isHeader: true,
+                notFirstMainMenu : false,
                 title: (apiProject.header.title == null) ? locale.__('General') : apiProject.header.title,
                 isFixed: true
             });
