@@ -28,7 +28,7 @@
       </div>
       {{/if}}
       {{#if isFixed}}
-      <li class="nav-fixed nav-header navbar-btn nav-list-item" data-group="{{subgroup}}"><a href="#api-{{subgroup}}" data-name="show-api-{{subgroup}}" class="show-api api-{{subgroup}}-init">{{underscoreToSpace title}}</a></li>
+      <li class="nav-fixed nav-header navbar-btn nav-list-item" data-group="{{subgroup}}"><a href="#api-{{subgroup}}" data-name="show-api-{{subgroup}}" class="show-api api-{{subgroup}}-init nav-list-item">{{underscoreToSpace title}}</a></li>
       {{else}}
       <li class="nav-header nav-list-item" data-group="{{subgroup}}"><a data-toggle="collapse" aria-expanded="false" aria-controls="#api-{{group}}-{{subgroup}}"  href="#api-{{group}}-{{subgroup}}" data-group="show-api-{{subgroup}}" class="show-group api-{{subgroup}}-init" role="button">{{underscoreToSpace title}}</a></li>
       {{/if}}
@@ -39,7 +39,7 @@
       </div>
       {{/if}}
       {{#if isFixed}}
-      <li class="nav-fixed nav-header navbar-btn nav-list-item" data-group="{{group}}"><a href="#api-{{group}}" data-name="show-api-{{group}}" class="show-api api-{{group}}-init">{{underscoreToSpace title}}</a></li>
+      <li class="nav-fixed nav-header navbar-btn nav-list-item" data-group="{{group}}"><a href="#api-{{group}}" data-name="show-api-{{group}}" class="show-api api-{{group}}-init nav-list-item">{{underscoreToSpace title}}</a></li>
       {{else}}
       <li class="nav-header nav-list-item" data-group="{{group}}"><a data-toggle="collapse" aria-expanded="false" aria-controls="#api-{{group}}" href="#api-{{group}}" data-group="show-api-{{group}}" class="show-group api-{{group}}-init" role="button">{{underscoreToSpace title}}</a></li>
       {{/if}}
@@ -290,18 +290,24 @@
       {{#each article.parameter.fields}}
       <h4><input type="checkbox" data-sample-request-param-group-id="sample-request-param-{{@index}}"  name="{{../id}}-sample-request-param" value="{{@index}}" class="sample-request-param sample-request-switch" checked/>{{__ @key}}
         <select   name="{{../id}}-sample-header-content-type" class="{{../id}}-sample-request-param-select sample-header-content-type sample-header-content-type-switch">
-          {{#if_eq ../article.type compare="get"}}
-          <option value="undefined"  selected>ajax-auto</option>
-          <option value="body-json" >body/json</option>
-          <option value="body-form-data" >body/form-data</option>
+          {{#if_eq ../article.type compare="get"}}\
+            <option value="undefined"  selected>ajax-auto</option>
+            <option value="body-json" >body/json</option>
+            <option value="body-form-data" >body/form-data</option>
           {{else}}
-          <option value="undefined"  >ajax-auto</option>
-          <option value="body-json" selected>body/json</option>
-          <option value="body-form-data" >body/form-data</option>
+            {{#if_eq ../article.name compare="issueToken"}}
+              <option value="undefined"  selected>ajax-auto</option>
+              <option value="body-json" >body/json</option>
+              <option value="body-form-data" >body/form-data</option>
+            {{else}}
+              <option value="undefined"  >ajax-auto</option>
+              <option value="body-json" selected>body/json</option>
+              <option value="body-form-data" >body/form-data</option>
+            {{/if_eq}}
           {{/if_eq}}
         </select>
       </h4>
-      <div class="{{../id}}-sample-request-param-body {{../id}}-sample-header-content-type-body {{#if_eq ../article.type compare="get"}}hide{{/if_eq}}">
+      <div class="{{../id}}-sample-request-param-body {{../id}}-sample-header-content-type-body {{#if_eq ../article.type compare="get"}}hide{{/if_eq}} {{#if_eq ../article.name compare="issueToken"}}hide{{/if_eq}}">
         <div class="form-group">
           <div class="input-group">
             <textarea id="sample-request-body-json" class="form-control sample-request-body" data-sample-request-body-group="sample-request-param-{{@./index}}" rows="6" style="OVERFLOW: visible" {{#if optional}}data-sample-request-param-optional="true"{{/if}}></textarea>
@@ -309,7 +315,7 @@
           </div>
         </div>
       </div>
-      <div class="{{../id}}-sample-request-param-fields {{../id}}-sample-header-content-type-fields {{#if_eq ../article.type compare="post"}}hide{{/if_eq}} {{#if_eq ../article.type compare="patch"}}hide{{/if_eq}} {{#if_eq ../article.type compare="delete"}}hide{{/if_eq}}">
+      <div class="{{../id}}-sample-request-param-fields {{../id}}-sample-header-content-type-fields {{#if_eq ../article.type compare="post"}} {{#if_eq ../article.name compare="issueToken"}} {{else}}hide{{/if_eq}}{{/if_eq}} {{#if_eq ../article.type compare="patch"}}hide{{/if_eq}} {{#if_eq ../article.type compare="delete"}}hide{{/if_eq}}">
         {{#each this}}
         <div class="form-group">
           <label class="col-md-3 control-label" for="sample-request-param-field-{{field}}">{{field}}</label>
