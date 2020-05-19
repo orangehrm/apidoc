@@ -315,7 +315,7 @@
           </div>
         </div>
       </div>
-      <div class="{{../id}}-sample-request-param-fields {{../id}}-sample-header-content-type-fields {{#if_eq ../article.type compare="post"}} {{#if_eq ../article.name compare="issueToken"}} {{else}}hide{{/if_eq}}{{/if_eq}} {{#if_eq ../article.type compare="patch"}}hide{{/if_eq}} {{#if_eq ../article.type compare="delete"}}hide{{/if_eq}}">
+      <div class="{{../id}}-sample-request-param-fields {{../id}}-sample-header-content-type-fields {{#if_eq ../article.type compare="post"}} {{#if_eq ../article.name compare="issueToken"}} {{else}}hide{{/if_eq}}{{/if_eq}} {{#if_eq ../article.type compare="patch"}}hide{{/if_eq}} {{#if_eq ../article.type compare="delete"}}hide{{/if_eq}} {{#if_eq ../article.type compare="put"}}hide{{/if_eq}}">
         {{#each this}}
         <div class="form-group">
           <label class="col-md-3 control-label" for="sample-request-param-field-{{field}}">{{field}}</label>
