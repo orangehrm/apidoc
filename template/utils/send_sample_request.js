@@ -40,7 +40,7 @@ define([
                 var key = $(element).data("sample-request-header-name");
                 var value = element.value;
                 if (typeof element.optional === 'undefined') {
-                  element.optional = true;
+                    element.optional = true;
                 }
                 if ( ! element.optional && element.defaultValue !== '') {
                     value = element.defaultValue;
@@ -228,11 +228,12 @@ define([
      * encode Search Params
      */
     function encodeSearchParams(obj) {
-        const params = [];
-        Object.keys(obj).forEach((key) => {
-            let value = obj[key];
+        var params = [];
+        for (var i = 0; i < Object.keys(obj); i++) {
+            var key = Object.keys(obj)[i];
+            var value = obj[key];
             params.push([key, encodeURIComponent(value)].join('='));
-        })
+        }
         return params.length === 0 ? '' : '?' + params.join('&');
     }
 
