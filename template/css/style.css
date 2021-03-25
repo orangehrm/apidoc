@@ -606,3 +606,11 @@ p.deprecated span{
   }
 
 } /* /@media print */
+
+
+div.tab-content {
+  max-height: 500px;
+  overflow-y: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
