@@ -39,7 +39,7 @@
     "lodash": "^4.17.15",
     "markdown-it": "^10.0.0",
     "nodemon": "^2.0.2",
-    "winston": "^3.2.1"
+    "winston": "3.2.1"
   },
   "devDependencies": {
     "amdefine": "^1.0.1",
