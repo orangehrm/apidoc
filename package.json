@@ -45,7 +45,7 @@
     "amdefine": "^1.0.1",
     "apidoc-example": "^0.2.1",
     "bootstrap": "3.4.1",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "jshint": "^2.11.0",
     "lodash-cli": "^4.17.5",
     "mocha": "^6.2.2",
